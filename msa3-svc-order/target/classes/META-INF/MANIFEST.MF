@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: msa3-svc-order
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: sjuhwang
+Implementation-Vendor-Id: com.msa_sample
+Build-Jdk: 1.8.0_181-1-ojdkbuild
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/msa_sample03/msa3-svc-order
+Created-By: Maven Integration for Eclipse
+

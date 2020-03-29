@@ -1,0 +1,8 @@
+com\msa_sample03\svc\order\OrderServiceApplication.class
+com\msa_sample03\svc\order\client\OrderMsgBinding.class
+com\msa_sample03\svc\order\service\OrderServiceImpl.class
+com\msa_sample03\svc\order\domain\OrderCVO.class
+com\msa_sample03\svc\order\service\OrderService.class
+com\msa_sample03\svc\order\client\OrderMsgListener.class
+com\msa_sample03\svc\order\config\SpringFoxConfig.class
+com\msa_sample03\svc\order\controller\OrderRestController.class

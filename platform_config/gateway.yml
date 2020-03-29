@@ -1,0 +1,14 @@
+kind: Gateway
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: gw-msasmp03
+spec:
+  servers:
+    - hosts:
+        - 'gateway.msasmp03.com'
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+  selector:
+    istio: ingressgateway

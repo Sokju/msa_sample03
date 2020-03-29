@@ -1,0 +1,50 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: msa3-svc-member
+
+#  cloud:
+#    kubernetes:
+##      config:
+##        enabled: true
+##      reload:
+##        enabled: true
+##        mode: polling
+##        strategy: RESTART_CONTEXT
+#        
+#      discovery:
+#        all-namespaces: true
+#        #enabled: false   
+#      ribbon:
+#        mode: SERVICE
+           
+#    stream:
+#      bindings:
+#        orderMsgChannel:
+#          destination: act
+#          binder: rabbit2
+#        rabbit2:
+#          type: rabbit
+#          environment:
+#            spring:
+#              rabbitmq:
+#                host: rabbitmq2
+#                port: 5672
+#                username: guest
+#                password: guest  
+  data:
+    mongodb:
+      host: mongodb-standalone-0.mongodb
+      username: user
+      password: password
+      database: sample01
+      port: 27017
+    
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /member/api-docs        
+

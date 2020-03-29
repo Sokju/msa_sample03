@@ -1,0 +1,11 @@
+com\msa_sample03\svc\member\controller\ErrorHandler.class
+com\msa_sample03\svc\member\service\MemberService.class
+com\msa_sample03\svc\member\repository\MemberRepository.class
+com\msa_sample03\svc\member\service\MemberServiceImpl.class
+com\msa_sample03\svc\member\config\SpringFoxConfig.class
+com\msa_sample03\svc\member\domain\Member.class
+com\msa_sample03\svc\member\client\OrderServiceClient.class
+com\msa_sample03\svc\member\MemberServiceApplication.class
+com\msa_sample03\svc\member\client\OrderMsgBinding.class
+com\msa_sample03\svc\member\controller\MemberRestController.class
+com\msa_sample03\svc\member\client\OrderSender.class

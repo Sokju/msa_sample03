@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: msa3-kiali-server
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: kiali.msasmp03.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kiali
+          servicePort: 20001

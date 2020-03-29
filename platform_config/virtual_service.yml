@@ -1,0 +1,26 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: vs-msasmp03
+spec:
+  hosts:
+    - 'gateway.msasmp03.com'
+  gateways:
+    - ingressgateway
+  http:
+    - match:
+        - uri:
+            prefix: /member
+      route:
+        - destination:
+            host: msa3-svc-member
+            port:
+              number: 9091
+    - match:
+        - uri:
+            prefix: /order
+      route:
+        - destination:
+            host: msa3-svc-order
+            port:
+              number: 9092        
