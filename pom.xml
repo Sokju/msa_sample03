@@ -39,5 +39,6 @@
 	<modules>
 		<module>msa3-svc-member</module>
 		<module>msa3-svc-order</module>
+		<module>msa3-svc-ui</module>
 	</modules>
 </project>
