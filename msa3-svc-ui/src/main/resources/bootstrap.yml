@@ -1,8 +1,2 @@
 server:
   port: 9093
-
-spring:
-  profiles: docker
-  application:
-    name: msa3-svc-ui
-

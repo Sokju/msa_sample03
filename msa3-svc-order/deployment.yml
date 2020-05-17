@@ -24,3 +24,20 @@ spec:
           protocol: TCP
       restartPolicy: Always
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: msa3-svc-order
+  name: msa3-svc-order
+spec:
+  ports:
+  - port: 9092
+    protocol: TCP
+    targetPort: 9092
+  selector:
+    run: msa3-svc-order
+  type: ClusterIP
+
+

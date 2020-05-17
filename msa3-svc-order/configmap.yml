@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: msa3-svc-order
+  namespace: msasmp01
+data:
+  application-dev.yml: |-
+    spring:
+      application:
+        name: msa3-svc-order
+    springfox:
+      documentation:
+        swagger:
+          v2:
+            path: /order/api-docs        

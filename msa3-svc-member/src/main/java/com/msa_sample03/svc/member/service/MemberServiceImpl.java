@@ -38,7 +38,7 @@ public class MemberServiceImpl implements MemberService {
 		log.debug("Member Name : {} ", memberName);
 		
 		member.setName(memberName);
-		orderServiceClient.order(member.getName());
+		//orderServiceClient.order(member.getName());
 		
 		//orderServer.send(MessageBuilder.withPayload(member).build());
 		

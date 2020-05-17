@@ -6,7 +6,7 @@ spec:
   hosts:
     - 'gateway.msasmp03.com'
   gateways:
-    - ingressgateway
+    - gw-msasmp03
   http:
     - match:
         - uri:
@@ -24,3 +24,11 @@ spec:
             host: msa3-svc-order
             port:
               number: 9092        
+    - match:
+        - uri:
+            prefix: /ui
+      route:
+        - destination:
+            host: msa3-svc-ui
+            port:
+              number: 9093

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: msa3-svc-ui
+  namespace: msasmp01
+data:
+  application-dev.yml: |-
+    spring:
+      application:
+        name: msa3-svc-ui
+
+      

@@ -12,9 +12,9 @@ public class OrderServiceImpl implements OrderService {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 	
 	@Override
-	public String order(OrderCVO orderCVO) {
+	public OrderCVO order(OrderCVO orderCVO) {
 		
 		log.debug("Order Service was called!!!");
-		return orderCVO.getId();
+		return orderCVO;
 	}
 }

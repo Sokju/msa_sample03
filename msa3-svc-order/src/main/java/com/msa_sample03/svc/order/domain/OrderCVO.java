@@ -6,6 +6,9 @@ public class OrderCVO {
 	private String orderName;   //주문명 
 	private String orderCount;  //주문개수 
 	private String memberName;  //회원명 
+	private String memberComment;
+	
+
 	public String getId() {
 		return id;
 	}
@@ -35,6 +38,12 @@ public class OrderCVO {
 	}
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
+	}
+	public String getMemberComment() {
+		return memberComment;
+	}
+	public void setMemberComment(String memberComment) {
+		this.memberComment = memberComment;
 	}
 	
 	

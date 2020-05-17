@@ -4,5 +4,5 @@ import com.msa_sample03.svc.order.domain.OrderCVO;
 
 public interface OrderService {
 	
-	public String order(OrderCVO orderCVO);
+	public OrderCVO order(OrderCVO orderCVO);
 }

@@ -5,6 +5,8 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +25,11 @@ public class MemberRestController {
 	private MemberService	memberService;
 	
 	@RequestMapping(value = "/member/{memberName}", method = RequestMethod.GET)
-	public Member getMemberByName(@PathVariable("memberName") String memberName) {
+	public ResponseEntity<Member> getMemberByName(@PathVariable("memberName") String memberName) {
 		
 		log.debug("############ getMemberByName : " + memberName);
 		
-		return memberService.findByName(memberName);
+		return new ResponseEntity<Member>(memberService.findByName(memberName), HttpStatus.OK);
 	}
 	
 	public Member fallbackMemberByName(@PathVariable("memberName") String memberName) {

@@ -24,3 +24,23 @@ spec:
           protocol: TCP
       restartPolicy: Always
 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: msa3-svc-member
+  name: msa3-svc-member
+spec:
+  ports:
+  - port: 9091
+    protocol: TCP
+    name: http
+    targetPort: 9091
+  selector:
+    run: msa3-svc-member
+  type: ClusterIP
+
+
+

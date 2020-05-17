@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  generation: 1
+  labels:
+    run: msa3-svc-ui
+  name: msa3-svc-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: msa3-svc-ui
+  template:
+    metadata:
+      labels:
+        run: msa3-svc-ui
+    spec:
+      containers:
+      - image: 192.168.100.102:5000/msasmp03/msa3-svc-ui:1.0
+        imagePullPolicy: Always
+        name: msa3-svc-ui
+        ports:
+        - containerPort: 9093
+          protocol: TCP
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: msa3-svc-ui
+  name: msa3-svc-ui
+spec:
+  ports:
+  - port: 9092
+    protocol: TCP
+    targetPort: 9093
+  selector:
+    run: msa3-svc-ui
+  type: ClusterIP
+
+
