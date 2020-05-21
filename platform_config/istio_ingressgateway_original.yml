@@ -4,7 +4,6 @@ metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"istio-ingressgateway","istio":"ingressgateway","operator.istio.io/component":"IngressGateways","operator.istio.io/managed":"Reconcile","operator.istio.io/version":"1.5.1","release":"istio"},"name":"istio-ingressgateway","namespace":"istio-system"},"spec":{"ports":[{"name":"status-port","port":15020,"targetPort":15020},{"name":"http2","port":80,"targetPort":80},{"name":"https","port":443},{"name":"kiali","port":15029,"targetPort":15029},{"name":"prometheus","port":15030,"targetPort":15030},{"name":"grafana","port":15031,"targetPort":15031},{"name":"tracing","port":15032,"targetPort":15032},{"name":"tcp","port":31400,"targetPort":31400},{"name":"tls","port":15443,"targetPort":15443}],"selector":{"app":"istio-ingressgateway","istio":"ingressgateway"},"type":"LoadBalancer"}}
-  creationTimestamp: "2020-03-28T06:31:32Z"
   labels:
     app: istio-ingressgateway
     istio: ingressgateway
@@ -14,55 +13,51 @@ metadata:
     release: istio
   name: istio-ingressgateway
   namespace: istio-system
-  resourceVersion: "1588128"
-  selfLink: /api/v1/namespaces/istio-system/services/istio-ingressgateway
-  uid: f3f3e3d8-47a8-4774-b16d-758b51a26d56
 spec:
-  clusterIP: 10.233.17.34
   externalTrafficPolicy: Cluster
   ports:
   - name: status-port
-    nodePort: 32487
+    nodePort: 31771
     port: 15020
     protocol: TCP
     targetPort: 15020
   - name: http2
-    nodePort: 31296
+    nodePort: 30553
     port: 80
     protocol: TCP
     targetPort: 80
   - name: https
-    nodePort: 32097
+    nodePort: 30443
     port: 443
     protocol: TCP
     targetPort: 443
   - name: kiali
-    nodePort: 30766
+    nodePort: 30171
     port: 15029
     protocol: TCP
     targetPort: 15029
   - name: prometheus
-    nodePort: 32637
+    nodePort: 32727
     port: 15030
     protocol: TCP
     targetPort: 15030
   - name: grafana
-    nodePort: 31636
+    nodePort: 30577
     port: 15031
     protocol: TCP
     targetPort: 15031
   - name: tracing
-    nodePort: 31187
+    nodePort: 32236
     port: 15032
     protocol: TCP
     targetPort: 15032
   - name: tcp
-    nodePort: 30875
+    nodePort: 30575
     port: 31400
     protocol: TCP
     targetPort: 31400
   - name: tls
-    nodePort: 30070
+    nodePort: 32570
     port: 15443
     protocol: TCP
     targetPort: 15443

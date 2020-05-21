@@ -1,9 +1,9 @@
 server:
   port: 9091
 
-#spring:
-#  application:
-#    name: msa3-svc-member
+spring:
+  application:
+    name: msa3-svc-member
 #
 ##  cloud:
 ##    kubernetes:

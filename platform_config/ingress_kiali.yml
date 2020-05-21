@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/
 kind: Ingress
 metadata:
   name: msa3-kiali-server
+  namespace: istio-system
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -13,3 +14,55 @@ spec:
         backend:
           serviceName: kiali
           servicePort: 20001
+---
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: msa3-grafana-server
+  namespace: istio-system
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: grafana.msasmp03.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: grafana
+          servicePort: 3000
+---
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: msa3-prometheus-server
+  namespace: istio-system
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: prometheus.msasmp03.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: prometheus
+          servicePort: 9090
+---
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: msa3-tracing-server
+  namespace: istio-system
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: tracing.msasmp03.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: tracing
+          servicePort: 80
+
