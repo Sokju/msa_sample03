@@ -41,29 +41,29 @@ public class OrderRestController {
 		try
 		{
 			//member service 호출
-			HttpHeaders headers = new HttpHeaders(); 
-			headers.setContentType(MediaType.APPLICATION_JSON);	//JSON 변환 
-			//headers.set("Authorization", "token key"); //Authorization 설정
-	
-			HttpEntity entity = new HttpEntity("parameters", headers); 
-			
-			ResponseEntity response= restTemplate.exchange(String.format("http://msa3-svc-member:9091/member/%s", orderCVO.getMemberName())
-															,	HttpMethod.GET
-															, 	entity
-															, 	String.class);
-			
-			JsonNode tnode = new ObjectMapper().readTree(response.getBody().toString());
-			
-			log.debug(response.getBody().toString());
-
-			JsonNode jnode = null;
+//			HttpHeaders headers = new HttpHeaders(); 
+//			headers.setContentType(MediaType.APPLICATION_JSON);	//JSON 변환 
+//			//headers.set("Authorization", "token key"); //Authorization 설정
+//	
+//			HttpEntity entity = new HttpEntity("parameters", headers); 
+//			
+//			ResponseEntity response= restTemplate.exchange(String.format("http://msa3-svc-member:9091/member/%s", orderCVO.getMemberName())
+//															,	HttpMethod.GET
+//															, 	entity
+//															, 	String.class);
+//			
+//			JsonNode tnode = new ObjectMapper().readTree(response.getBody().toString());
+//			
+//			log.debug(response.getBody().toString());
+//
+//			JsonNode jnode = null;
 	        
 	        
 			//order
 			orderCVO	=	orderService.order(orderCVO);
 			
 		}
-		catch (IOException e) 
+		catch (Exception e) 
 		{
             rethrowRuntimeException(e);
         } 

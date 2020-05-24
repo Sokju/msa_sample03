@@ -1,0 +1,15 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: vs-order
+spec:
+  hosts:
+    - 'msa3-svc-order'
+  http:
+    - timeout: 5s
+    - match:
+        - uri:
+            prefix: /order
+      route:
+        - destination:
+            host: msa3-svc-order

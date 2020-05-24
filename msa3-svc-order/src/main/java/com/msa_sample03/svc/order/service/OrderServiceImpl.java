@@ -15,6 +15,7 @@ public class OrderServiceImpl implements OrderService {
 	public OrderCVO order(OrderCVO orderCVO) {
 		
 		log.debug("Order Service was called!!!");
+		orderCVO.setMemberComment("Order Service was called");
 		return orderCVO;
 	}
 }

@@ -18,16 +18,21 @@ public class MemberServiceApplication {
 		SpringApplication.run(MemberServiceApplication.class, args);
 	}
 	
-    @Bean
-    public RestTemplate restTemplate() {
-    	HttpComponentsClientHttpRequestFactory httpRequestFactory = new HttpComponentsClientHttpRequestFactory();
-        httpRequestFactory.setConnectTimeout(2000);
-        httpRequestFactory.setReadTimeout(3000);
-        HttpClient httpClient = HttpClientBuilder.create()
-                .setMaxConnTotal(200)
-                .setMaxConnPerRoute(20)
-                .build();
-        httpRequestFactory.setHttpClient(httpClient);
-        return new RestTemplate(httpRequestFactory);
-    }
+	@Bean
+	public RestTemplate restTemplate() {
+	    return new RestTemplate();
+	}
+	
+//    @Bean
+//    public RestTemplate restTemplate() {
+//    	HttpComponentsClientHttpRequestFactory httpRequestFactory = new HttpComponentsClientHttpRequestFactory();
+//        httpRequestFactory.setConnectTimeout(2000);
+//        httpRequestFactory.setReadTimeout(3000);
+//        HttpClient httpClient = HttpClientBuilder.create()
+//                .setMaxConnTotal(200)
+//                .setMaxConnPerRoute(20)
+//                .build();
+//        httpRequestFactory.setHttpClient(httpClient);
+//        return new RestTemplate(httpRequestFactory);
+//    }
 }

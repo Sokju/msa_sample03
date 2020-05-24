@@ -7,6 +7,8 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.msa_sample03.svc.member.client.OrderSender;
 import com.msa_sample03.svc.member.client.OrderServiceClient;
 import com.msa_sample03.svc.member.domain.Member;
@@ -38,11 +40,10 @@ public class MemberServiceImpl implements MemberService {
 		log.debug("Member Name : {} ", memberName);
 		
 		member.setName(memberName);
-		//orderServiceClient.order(member.getName());
+		member = repository.findByName(memberName);
+		member = orderServiceClient.order(member.getName());
 		
-		//orderServer.send(MessageBuilder.withPayload(member).build());
-		
-		return repository.findByName(memberName);
+		return member;
 	}
 
 	/**
