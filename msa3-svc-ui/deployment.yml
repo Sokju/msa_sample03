@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  generation: 1
   labels:
     run: msa3-svc-ui
   name: msa3-svc-ui
@@ -33,8 +32,9 @@ metadata:
   name: msa3-svc-ui
 spec:
   ports:
-  - port: 9092
+  - port: 9093
     protocol: TCP
+    name: http
     targetPort: 9093
   selector:
     run: msa3-svc-ui

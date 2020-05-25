@@ -1,0 +1,14 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1alpha3
+metadata:
+  name: vs-product
+spec:
+  hosts:
+    - 'msa3-svc-product'
+  http:
+    - match:
+        - uri:
+            prefix: /product
+      route:
+        - destination:
+            host: msa3-svc-product

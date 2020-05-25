@@ -45,7 +45,8 @@ public class OrderServiceClient {
 		HttpHeaders headers = new HttpHeaders(); 
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));	//JSON 변환 
 		//headers.add("Authorization", "bearer " + token); //Authorization 설정
-
+		
+		String rtn = null;
 		try
 		{
 			
@@ -53,11 +54,23 @@ public class OrderServiceClient {
 			
 			HttpEntity<String> requestEntity = new HttpEntity<String>(requestBody, headers);
 			response = restTemplate.exchange("http://msa3-svc-order:9092/order", HttpMethod.POST, requestEntity, String.class);
-			
 			JsonNode tnode = new ObjectMapper().readTree(response.getBody().toString());
 			
+			rtn = tnode.path("memberComment").asText();
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("name"			, 	memberName);
+			params2.put("memberName"	,	memberName);
+			
+			requestBody = objectMapper.writeValueAsString(params2);
+			requestEntity = new HttpEntity<String>(requestBody, headers);
+			
+			response = restTemplate.exchange("http://msa3-svc-product:9094/product", HttpMethod.GET, requestEntity, String.class);
+			tnode = new ObjectMapper().readTree(response.getBody().toString());
+			
 			member.setName(memberName);
-			member.setComment(tnode.path("memberComment").asText());
+			member.setComment(rtn + "==>" +tnode.path("comment").asText());
+			
 			
 		}
 		catch (IOException e)

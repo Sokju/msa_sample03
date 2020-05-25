@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: msa3-svc-product
+  name: msa3-svc-product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: msa3-svc-product
+  template:
+    metadata:
+      labels:
+        run: msa3-svc-product
+    spec:
+      containers:
+      - image: 192.168.100.102:5000/msasmp03/msa3-svc-product:1.0
+        imagePullPolicy: Always
+        name: msa3-svc-product
+        ports:
+        - containerPort: 9094
+          protocol: TCP
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: msa3-svc-product
+  name: msa3-svc-product
+spec:
+  ports:
+  - port: 9094
+    protocol: TCP
+    name: http
+    targetPort: 9094
+  selector:
+    run: msa3-svc-product
+  type: ClusterIP
+
+

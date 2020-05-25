@@ -30,10 +30,10 @@
         </rollingPolicy>
     </appender>
     
-    <logger name="com.msa_sample02" level="DEBUG" additivity = "false">
+    <logger name="com.msa_sample03" level="DEBUG" additivity = "false">
         <appender-ref ref="SAMPLE" />
     </logger>
-    <!-- logger name="com.msa_sample02" level="INFO">
+    <!-- logger name="com.msa_sample03" level="INFO">
         <appender-ref ref="DAILY_ROLLING_FILE_APPENDER" />
     </logger -->
     <root level="INFO">
